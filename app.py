@@ -55,7 +55,7 @@ def handle_text_message(event):
         TextSendMessage(text=text)) #reply the same message from user
     
 def p(log):
-  print (unicode(log, encoding="utf-8"))
+  print log.encode('utf-8') 
   sys.stdout.flush()    
 
 import os
