@@ -19,11 +19,14 @@ handler = WebhookHandler('3a376ac7d336060b079f677c5f3b414c') #Your Channel Secre
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
+    System.out.println("flag1");
     signature = request.headers['X-Line-Signature']
+    System.out.println("signature:"+signature);
 
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
+    System.out.println("Request body: " + body);
 
     # handle webhook body
     try:
@@ -35,8 +38,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
+     System.out.println("flag2");
     text = event.message.text #message from user
-
+System.out.println("text:"+text);
+System.out.println("event.reply_token:"+event.reply_token);
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=text)) #reply the same message from user
