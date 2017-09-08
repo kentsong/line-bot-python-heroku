@@ -47,8 +47,8 @@ def handle_text_message(event):
     p("event.reply_token:"+event.reply_token);
 
     #Line 系統token 不回應
-    if event.reply_token == '00000000000000000000000000000000'
-       return 'Line reply_token 檢核,不作回應'
+    if event.reply_token == '00000000000000000000000000000000':
+       return 'Line reply_token 檢核,不作回應';
 
     line_bot_api.reply_message(
         event.reply_token,
