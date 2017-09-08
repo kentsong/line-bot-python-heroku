@@ -54,8 +54,8 @@ def handle_text_message(event):
         event.reply_token,
         TextSendMessage(text=text)) #reply the same message from user
     
-def p(*args):
-  print args[0] % (len(args) > 1 and args[1:] or [])
+def p(log):
+  print log
   sys.stdout.flush()    
 
 import os
