@@ -55,9 +55,10 @@ def handle_text_message(event):
         TextSendMessage(text=text)) #reply the same message from user
     
 def p(log):
-  print log.encode('utf-8') 
+  print(log)
   sys.stdout.flush()    
 
 import os
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=os.environ['PORT'])
+    # app.run()
